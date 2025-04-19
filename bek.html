@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tekshiruv</title>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+  </head>
+  <body>
+    <h3>ReCAPTCHA tekshiruv</h3>
+    <form id="captcha-form">
+      <div class="g-recaptcha" data-sitekey="6Lef9B0rAAAAAM_MWFbGFBlZrfPGkHu867U1fB9S"></div>
+      <br>
+      <input type="submit" value="Tasdiqlash">
+    </form>
+
+    <script>
+      document.getElementById("captcha-form").addEventListener("submit", function(e) {
+        e.preventDefault();
+        const token = grecaptcha.getResponse();
+        const user_id = new URLSearchParams(window.location.search).get("user_id");
+
+        fetch(https://api.telegram.org/bot8162534421:AAES8J1uHcv3Oo1Pld0OEqTqHR3AmvCNloE/sendMessage?chat_id=${user_id}&text=✅ Siz reCAPTCHA’dan o‘tdingiz!, {
+          method: "GET"
+        }).then(() => {
+          alert("Yuborildi!");
+        });
+      });
+    </script>
+  </body>
+</html>
